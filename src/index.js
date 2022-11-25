@@ -1,9 +1,17 @@
-import template from './template.vue';
-// 获取配置文件
-// 根据配置创建配置文件
-// 格式化配置文件
-// 获取模板目录
-// 根据格式化配置文件 替换模板目录中文件的内容（）变量名等
-// 文件内容
-// 根据entity name 创建目录名，文件名，文件中的变量名
-// 输出文件写到对应的目录下
+let fs = require('fs');
+const path = require('path');
+let ejs = require('ejs');
+let createTemplate = require('./template/entity-element-plus/indexVue');
+const options = require('../crud.config');
+const target = path.resolve(__dirname,'template/entity-element-plus','indexVue.ejs');
+
+fs.readFile(target, (err, data) => {
+    if(err) throw Error(err);
+    let template = data.toString();
+    let output = ejs.render(template, options);
+    fs.writeFileSync(`../dist/index-${Date.now()}.vue`, output)
+
+});
+// let template = createTemplate(options);
+
+

@@ -1,0 +1,23 @@
+{
+  "name": "create-crud-template",
+  "version": "1.0.0",
+  "description": "This is a cli for creating crud page of an entity, currently support for vue@next sfc template. Code spliting is automatically done.",
+  "main": "crud.config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/luhaitao0626/create-crud-template.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/luhaitao0626/create-crud-template/issues"
+  },
+  "homepage": "https://github.com/luhaitao0626/create-crud-template#readme",
+  "dependencies": {
+    "ejs": "^3.1.8"
+  }
+}
