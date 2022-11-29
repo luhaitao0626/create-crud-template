@@ -1,17 +1,9 @@
-let fs = require('fs');
-const path = require('path');
-let ejs = require('ejs');
-let createTemplate = require('./template/entity-element-plus/indexVue');
-const options = require('../crud.config');
-const target = path.resolve(__dirname,'template/entity-element-plus','indexVue.ejs');
+const config = require("../crud.config");
+const Compiler = require("./compiler");
+const normallizer = require("./normalizer");
+let options = normallizer(config);
 
-fs.readFile(target, (err, data) => {
-    if(err) throw Error(err);
-    let template = data.toString();
-    let output = ejs.render(template, options);
-    fs.writeFileSync(`../dist/index-${Date.now()}.vue`, output)
+let compiler = new Compiler(options);
 
-});
+compiler.run();
 // let template = createTemplate(options);
-
-

@@ -1,7 +1,8 @@
 import { ref, reactive } from 'vue';
 import { setUsers } from '.';
+<% if(hasPagination){%>
 export const total = ref(0);
-
+<%}%>
 export const pagination = reactive({
     pageNum: 1,
     pageSize: 5,

@@ -1,4 +1,3 @@
-
 export const data = [
     {
         id: '0000001',
