@@ -1,4 +1,4 @@
-export const data = [
+const MockData = [
     {
         id: '0000001',
         name: "Tom",
@@ -16,3 +16,5 @@ export const data = [
         address: "No. 189, Grove St, Los Angeles",
     },
 ];
+
+export default MockData;

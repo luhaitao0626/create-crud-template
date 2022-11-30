@@ -1,17 +1,10 @@
-import { getUsers, remove, update } from "./crud";
-import { total } from './pagination';
 import { reactive, ref } from "vue";
+import { get<%=entityInitial%>s, remove, update } from "./crud";
+<%if(hasPagination){%>
+import { total } from './pagination';
+<%}%>
 import { params } from "./query";
-import type { UserQuery, UserInfo } from "@/typings/user";
-import { useUserStore } from '@/stores/user';
-import { useRouter } from "vue-router";
-import * as types from '@/stores/action-types';
-import pinia from "@/stores/index";
 import { entityDefinition } from './entityDefinition';
-
-const userStore = useUserStore(pinia);
-
-const router = useRouter();
 
 export let tableData: any = ref([]);
 
@@ -19,11 +12,11 @@ export let tableData: any = ref([]);
 export const tableHeader = reactive(entityDefinition);
 
 // getlist
-export const setUsers = async () => {
-    let users = await getUsers(params.value);
-    tableData.value = users.list;
+export const set<%=entityInitial%>s = async () => {
+    let <%=entity%>s = await get<%=entityInitial%>s(params.value);
+    tableData.value = <%=entity%>s.list;
     <%if(hasPagination){%>
-    total.value = users.total;
+    total.value = <%=entity%>s.total;
     <%}%>
 }
 
@@ -36,11 +29,10 @@ export const handleEdit = async (index: any, row: any) => {
 // delete
 export const handleDelete = async (index: any, row: any) => {
     let res = await remove(row.id);
-    setUsers();
+    set<%=entityInitial%>s();
 };
 
 // show detail
 export const handleDetail = (index: any, row: any) => {
-    userStore[types.SET_SELECTED_USER](row);
-    router.push(`/entity/detail/${row.id}`);
+
 };

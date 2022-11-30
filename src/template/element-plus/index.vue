@@ -110,7 +110,7 @@ import {
 import {
     tableHeader,
     tableData,
-    setUsers,
+    set<%=entityInitial%>s,
   <% if (editable) { %>
     handleEdit,
   <% } %>
@@ -119,6 +119,6 @@ import {
 } from ".";
 
 onMounted(() => {
-  setUsers();
+  set<%=entityInitial%>s();
 });
 </script>

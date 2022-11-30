@@ -1,48 +1,57 @@
-import { isEmpty } from '@/utils/utils';
 import { reactive, computed } from 'vue';
-<%if(pagination)%>
+<% if(hasPagination){ %>
 import { pagination, resetPagination } from './pagination';
-<%}%>
-import { setUsers } from '.';
-import { hasPagination } from '../../../crud.config';
+<% } %>
+import { set<%=entityInitial%>s } from '.';
 
-// TODO:这里需要queryFields动态生成
+<%if(hasQuery){%>
+const isEmpty = (target: string) => {
+    return target === '';
+}
+<%}%>
+
 export const form = reactive({
-    username: '',
-    phone: '',
+    <% queryFields.forEach(field=>{ %>
+        <%= field%> : '',
+    <% })%>
 });
 
 export const params = computed(() => {
     let obj: any = {};
-    <%if(hasQuery)%>
-    // TODO:这里需要queryFields动态生成
-    if (!isEmpty(form.username)) obj.username = form.username;
-    if (!isEmpty(form.phone)) obj.phone = form.username;
+    <%if(hasQuery){%>
+        <% queryFields.forEach(field=> {%>
+            if (!isEmpty(form.<%=field%>)) obj.<%=field%> = form.<%=field%>;
+        <%})%>
     <%}%>
-    <%if(hasPagination)%>
+    <%if(hasPagination){%>
     obj.pageNum = pagination.pageNum;
     obj.pageSize = pagination.pageSize;
     <%}%>
 
-    <%if(hasQuery || hasPagination)%>
+    <%if(hasQuery || hasPagination){%>
     return obj;
-    <% else {%>
+    <% } else {%>
     return null
-    <%?%>
+    <%}%>
 })
 
 export const search = async () => {
+    <%if(hasPagination){%>
     resetPagination();
-    setUsers();
+    <%}%>
+    set<%=entityInitial%>s();
 }
 
 export const reset = async () => {
     clearSearchForm();
+    <%if(hasPagination){%>
     resetPagination();
-    setUsers();
+    <%}%>
+    set<%=entityInitial%>s();
 }
 
 export const clearSearchForm = () => {
-    form.username = '';
-    form.phone = '';
+    <% queryFields.forEach(field=> {%>
+        form.<%=field%> = ''
+    <%})%>
 }

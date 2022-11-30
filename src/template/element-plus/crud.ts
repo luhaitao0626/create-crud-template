@@ -1,27 +1,18 @@
-import type { UserQuery } from '@/typings/user';
-import * as types from '@/stores/action-types';
-import { useUserStore } from "@/stores/user";
-import pinia from "@/stores/index";
-import type { UserInfo } from './typings/user';
+import type { I<%=entityInitial%> } from './typings/entity';
+import type { I<%=entityInitial%>Query } from './typings/entityQuery';
+import MockData from './mock-data';
 
-const userStore = useUserStore(pinia);
-
-// enum Fileds {
-//     id = 'id',
-//     name = 'name',
-//     phone = 'phone',
-//     gender = 'gender',
-//     email = 'email',
-//     address = 'address',
-// }
-
-const Fields = ['id', 'username', 'gender', 'email', 'address', 'birthday'];
+const Fields:string[] = [
+    <% fieldNames.forEach(fieldName=>{ %>
+        '<%=fieldName%>',
+    <%})%>
+];
 
 // interface FilterFields<T, U> {
 //     (data: T, fields: U): T;
 // }
 
-// export const filterFields: FilterFields<UserInfo, typeof Fields> = (data, fields) => {
+// export const filterFields: FilterFields<I<%=entityInitial%>, typeof Fields> = (data, fields) => {
 export const filterFields = (data: any, fields: string[]) => {
     const _data = Object.keys(data)
         .filter((key) => fields.includes(key))
@@ -33,27 +24,24 @@ export const filterFields = (data: any, fields: string[]) => {
     return _data;
 }
 
-export const getUsers = async (params: UserQuery): Promise<any> => {
+export const get<%=entityInitial%>s = async (params: I<%=entityInitial%>Query): Promise<any> => {
     try {
         let _data;
-        if(params) {
-            let { data } = await userStore[types.GET_USERS](params);
-            _data = data;
-        }else{
-            let { data } = await userStore[types.GET_USERS]();
-            _data = data;
+        if(params) { // with query params
+            _data = MockData;
+        }else{ // with query params that is get all list
+            _data = MockData;
         }
         return _data;
     } catch (e) {
-        // 优雅降级为本地Mock数据
         console.log(e);
         return e
     }
 }
-export const update = async (user: UserInfo): Promise<any> => {
-    let _user = filterFields(user, Fields);
+export const update = async (<%=entity%>: I<%=entityInitial%>): Promise<any> => {
+    let _<%=entity%> = filterFields(<%=entity%>, Fields);
     try {
-        let res = await userStore[types.UPDATE_USER](_user);
+        // update api
     }
     catch (e) {
         return e
@@ -61,7 +49,7 @@ export const update = async (user: UserInfo): Promise<any> => {
 }
 export const remove = async (id: string): Promise<any> => {
     try {
-        let res = await userStore[types.DELETE_USER](id);
+        // remove api
     }
     catch (e) {
         return e

@@ -1,10 +1,13 @@
 const path = require("path");
+const { queryFields } = require("../../crud.config");
+const allFiles = require("../fileList");
 
+// 根据要类型获取template目录
 function getFolder(type) {
   if (type === "element-plus") {
     return path.resolve(__dirname, "../template", type);
-  } else if (type === "ant-design") {
   } else {
+    throw Error(`${type}-crud-template is not available at present`);
   }
 }
 
@@ -19,12 +22,34 @@ function findExcludes(config) {
   return excludes;
 }
 
+const getOutputs = (excludes, fileList) => {
+  return fileList.filter((file) => {
+    return !excludes.includes(file);
+  });
+};
+
+const getFieldNames = (fieldsObj) => {
+  return Object.getOwnPropertyNames(fieldsObj);
+};
+
+const getInitialEntity = (entityName) => {
+  return entityName.slice(0,1).toUpperCase() + entityName.slice(1).toLowerCase();
+}
+
+const isHasQuery = (queryFields)=>{
+  return queryFields && queryFields.length>0
+}
+
 let normalizer = function (config) {
   const templatePath = getFolder(config.type);
+  const hasQuery = isHasQuery(config.queryFields);
+  config.hasQuery = hasQuery;
   const excludes = findExcludes(config); // 找到不需要输出的文件
-//   const output = path.resolve(__dirname, "../../dist");
-  const ctx = { ...config, templatePath, excludes };
-//   console.log(ctx);
+  const files = getOutputs(excludes, allFiles); // 筛选出要输出的文件列表
+  const fieldNames = getFieldNames(config.fields);
+  const entityInitial = getInitialEntity(config.entity);
+  const ctx = { ...config, templatePath, excludes, files, fieldNames,entityInitial,hasQuery };
+  // console.log(ctx);
   return ctx;
 };
 
