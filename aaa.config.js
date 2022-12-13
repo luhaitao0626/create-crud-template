@@ -46,22 +46,22 @@ const config = {
   },
   queryFields: ["username", "phone",'email'],
   operations: ["create", "update", "remove", "detail"],
-  // dependencies: [
-  //   {
-  //     name: "store",
-  //     isNeed: true,
-  //     path: "@/stores",
-  //     aliasName: "userStore",
-  //     actionTypes: {
-  //       isNeed: true,
-  //       path: "@/stores/action-types",
-  //     },
-  //   },
-  //   {
-  //     name: "router",
-  //     isNeed: true,
-  //   },
-  // ],
+  dependencies: [
+    {
+      name: "store",
+      isNeed: true,
+      path: "@/stores",
+      aliasName: "userStore",
+      actionTypes: {
+        isNeed: true,
+        path: "@/stores/action-types",
+      },
+    },
+    {
+      name: "router",
+      isNeed: true,
+    },
+  ],
 };
 // console.log('indexconfig.js',config.output)
 module.exports = config;

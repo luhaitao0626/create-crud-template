@@ -1,5 +1,5 @@
 const path = require("path");
-const { queryFields } = require("../../crud.config");
+const { queryFields } = require("../../default.config");
 const allFiles = require("../fileList");
 
 // 根据要类型获取template目录
