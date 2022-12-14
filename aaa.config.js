@@ -1,7 +1,7 @@
 const path = require('path');
 
 const config = {
-  entity: "user",
+  entity: "role",
   type: 'element-plus',
   output: path.resolve(__dirname,'dist'),
   editable: true,

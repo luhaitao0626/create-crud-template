@@ -1,10 +1,13 @@
 const { program } = require("commander");
 const path = require("path");
+const fs = require("fs");
+const Inquirer = require('inquirer');
+
 const cwd = process.cwd();
 const target = path.join(cwd, "dist");
 const defaultConfigPath = path.resolve("default.config.js");
 const defaultConfigOutputPath = path.join(target, "aaa.config.js");
-const fs = require("fs");
+
 const { getConfigFiles } = require("./src/utils/index");
 const creator = require("./src");
 program
@@ -29,7 +32,7 @@ program
   .description(
     "create template by [entity].config.js. If there is no .config.js in cwd then cli will use default config.js to create template!"
   )
-  .action((str, options) => {
+  .action(async (str, options) => {
     // 1.找到当前目录下的.config.js
     let files = getConfigFiles(cwd);
     console.log(files);
@@ -41,7 +44,13 @@ program
     }else if(files.length === 1){//  如果只有一个config.js文件就将其作为config
         configPath = path.resolve(cwd,files[0]);
     }else{//如果有多个，让用户选择指定一个作为config，
-        configPath = path.resolve(cwd,files[0]);
+        let file = await Inquirer.prompt({
+          name: 'config',
+          type: 'list',
+          choices: files,
+          message: 'please choose a config file'
+      });
+      configPath = path.resolve(cwd, file.config);
     }
 
     // 3.cli(options)生成compiler

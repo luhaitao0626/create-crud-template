@@ -19,6 +19,7 @@
   "homepage": "https://github.com/luhaitao0626/create-crud-template#readme",
   "dependencies": {
     "commander": "^9.4.1",
-    "ejs": "^3.1.8"
+    "ejs": "^3.1.8",
+    "inquirer": "^8.0.0"
   }
 }
