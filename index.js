@@ -10,6 +10,7 @@ const defaultConfigOutputPath = path.join(target, "aaa.config.js");
 
 const { getConfigFiles } = require("./src/utils/index");
 const creator = require("./src");
+
 program
   .name("create-crud-template")
   .description("CLI to create crud template")

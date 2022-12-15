@@ -1,0 +1,29 @@
+#! /usr/bin/env node
+
+const { program } = require("commander");
+
+program
+  .name("create-crud-template")
+  .description("CLI to create crud template")
+  .version("0.0.1");
+
+program
+  .command("init")
+  .description("pull default.config.js into cwd for user to customize options")
+  // .argument('<string>','assign name for entity')
+  .option("--name", "assign name for entity")
+  .action((str, options) => {
+    require('../lib/init')()
+  });
+
+
+program
+  .command("create")
+  .description(
+    "create template by [entity].config.js. If there is no .config.js in cwd then cli will use default config.js to create template!"
+  )
+  .action(async (str, options) => {
+    require('../lib/create')()
+  });
+
+program.parse();
