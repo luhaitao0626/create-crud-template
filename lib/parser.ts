@@ -1,4 +1,4 @@
-import fileList from './fileList';
+const fileList = require('./fileList');
 
 const isNeedQuery = (queryFields) => {
     if (queryFields) {

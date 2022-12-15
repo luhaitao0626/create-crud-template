@@ -11,9 +11,10 @@ program
   .command("init")
   .description("pull default.config.js into cwd for user to customize options")
   // .argument('<string>','assign name for entity')
-  .option("--name", "assign name for entity")
-  .action((str, options) => {
-    require('../lib/init')()
+  .option("-n, --name <char>", "assign name for entity")
+  .action(function(){
+    const name = this.opts().name;
+    require('../lib/init')(name)
   });
 
 
