@@ -1,6 +1,8 @@
 import { reactive, ref } from "vue";
-import { getEntitys, remove, update } from "./crud";
+import { getUsers, remove, update } from "./crud";
+
 import { total } from './pagination';
+
 import { params } from "./query";
 import { entityDefinition } from './entityDefinition';
 
@@ -10,10 +12,12 @@ export let tableData: any = ref([]);
 export const tableHeader = reactive(entityDefinition);
 
 // getlist
-export const setEntitys = async () => {
-    let entitys = await getEntitys(params.value);
-    tableData.value = entitys.list;
-    total.value = entitys.total;
+export const setUsers = async () => {
+    let users = await getUsers(params.value);
+    tableData.value = users.list;
+    
+    total.value = users.total;
+    
 }
 
 // edit/update
@@ -25,7 +29,7 @@ export const handleEdit = async (index: any, row: any) => {
 // delete
 export const handleDelete = async (index: any, row: any) => {
     let res = await remove(row.id);
-    setEntitys();
+    setUsers();
 };
 
 // show detail

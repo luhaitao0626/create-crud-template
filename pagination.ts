@@ -1,5 +1,5 @@
 import { ref, reactive } from 'vue';
-import { setEntitys } from '.';
+import { setUsers } from '.';
 
 export const total = ref(0);
 
@@ -15,9 +15,9 @@ export const resetPagination = () => {
 
 export const handleSizeChange = (val: number) => {
     pagination.pageSize = val;
-    setEntitys();
+    setUsers();
 }
 export const handleCurrentChange = (val: number) => {
     pagination.pageNum = val;
-    setEntitys();
+    setUsers();
 }

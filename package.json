@@ -24,6 +24,7 @@
     "inquirer": "^8.0.0"
   },
   "devDependencies": {
-    "@types/node": "^18.11.15"
+    "@types/node": "^18.11.15",
+    "@vue/compiler-sfc": "^3.2.45"
   }
 }
