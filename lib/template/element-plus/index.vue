@@ -2,9 +2,6 @@
   <div>
     <el-row class="mb-4">
       <el-form :inline="true" :model="form">
-        <!-- <el-form-item label="<%= fields[query].label %>">
-          <el-input v-model="form.<%= query %>" placeholder="请输入<%= fields[query].label %>" />
-        </el-form-item> -->
         <el-form-item>
           <el-button type="primary" @click="search">查询</el-button>
           <el-button type="primary" @click="reset">清空</el-button>
@@ -27,9 +24,9 @@
           </div>
           <!-- 非编辑模式 -->
           <div v-show="!item.editable && !scope.row.editable" class="editable-row">
-            <span class="editable-row-span" v-if="item.prop === 'gender'">{{ scope.row[item.prop] === 1 ? '男' :
-    '女'
-}}</span>
+            <span class="editable-row-span" v-if="item.prop === 'gender'">
+              {{ scope.row[item.prop] === 1 ? '男' : '女' }}
+            </span>
             <span class="editable-row-span" v-else>{{ scope.row[item.prop] }}</span>
           </div>
         </template>
@@ -57,9 +54,7 @@
         <template #default="scope">
           <!-- 非编辑模式 -->
           <div>
-            <span v-if="item.prop === 'gender'">{{ scope.row[item.prop] === 1 ? '男' :
-    '女'
-}}</span>
+            <span v-if="item.prop === 'gender'">{{ scope.row[item.prop] === 1 ? '男' : '女' }}</span>
             <span v-else>{{ scope.row[item.prop] }}</span>
           </div>
         </template>
