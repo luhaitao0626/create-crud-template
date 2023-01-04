@@ -44,7 +44,7 @@ const config = {
       editable: false,
     },
   },
-  queryFields: ["username", "phone",'email'],
+  // queryFields: ["username", "phone",'email'],
   operations: ["create", "update", "remove", "detail"],
   dependencies: [
     {

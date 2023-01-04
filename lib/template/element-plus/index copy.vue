@@ -27,9 +27,9 @@
           </div>
           <!-- 非编辑模式 -->
           <div v-show="!item.editable && !scope.row.editable" class="editable-row">
-            <span class="editable-row-span" v-if="item.prop === 'gender'">{{ scope.row[item.prop] === 1 ? '男' :
-    '女'
-}}</span>
+            <span class="editable-row-span" v-if="item.prop === 'gender'">
+              {{ scope.row[item.prop] === 1 ? '男' : '女' }}
+            </span>
             <span class="editable-row-span" v-else>{{ scope.row[item.prop] }}</span>
           </div>
         </template>
@@ -57,9 +57,7 @@
         <template #default="scope">
           <!-- 非编辑模式 -->
           <div>
-            <span v-if="item.prop === 'gender'">{{ scope.row[item.prop] === 1 ? '男' :
-    '女'
-}}</span>
+            <span v-if="item.prop === 'gender'">{{ scope.row[item.prop] === 1 ? '男' : '女'}}</span>
             <span v-else>{{ scope.row[item.prop] }}</span>
           </div>
         </template>
