@@ -19,6 +19,11 @@
   },
   "homepage": "https://github.com/luhaitao0626/create-crud-template#readme",
   "dependencies": {
+    "@babel/core": "^7.20.12",
+    "@babel/generator": "^7.20.7",
+    "@babel/parser": "^7.20.7",
+    "@babel/traverse": "^7.20.12",
+    "@babel/types": "^7.20.7",
     "commander": "^9.4.1",
     "ejs": "^3.1.8",
     "inquirer": "^8.0.0",
