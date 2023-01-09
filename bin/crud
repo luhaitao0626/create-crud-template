@@ -5,6 +5,7 @@ const { program } = require("commander");
 program
   .name("create-crud-template")
   .description("CLI to create crud template")
+  // TODO get version from package.json
   .version("0.0.1");
 
 program
