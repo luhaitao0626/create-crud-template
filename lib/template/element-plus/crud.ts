@@ -10,7 +10,7 @@ const Fields: string[] = [
 //     (data: T, fields: U): T;
 // }
 
-// export const filterFields: FilterFields<I<%=entityInitial%>, typeof Fields> = (data, fields) => {
+// export const filterFields: FilterFields<IEntity, typeof Fields> = (data, fields) => {
 export const filterFields = (data: any, fields: string[]) => {
     const _data = Object.keys(data)
         .filter((key) => fields.includes(key))
@@ -24,13 +24,7 @@ export const filterFields = (data: any, fields: string[]) => {
 
 export const getEntitys = async (params: IEntityQuery): Promise<any> => {
     try {
-        let _data;
-        if (params) { // with query params
-            _data = MockData;
-        } else { // with query params that is get all list
-            _data = MockData;
-        }
-        return _data;
+        return MockData;
     } catch (e) {
         console.log(e);
         return e
@@ -41,16 +35,16 @@ export const update = async(entity: IEntity): Promise<any> => {
     try {
         // update api
     }
-    catch (e) {
-        return e
+    catch (err) {
+        return err
     }
 }
 export const remove = async (id: string): Promise<any> => {
     try {
         // remove api
     }
-    catch (e) {
-        return e
+    catch (err) {
+        return err
     }
 }
 
