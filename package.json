@@ -7,7 +7,13 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "prepare": "husky install",
-    "commitlint": "commitlint --config commitlint.config.js -e -V"
+    "commitlint": "commitlint --config commitlint.config.js -e -V",
+    "commit": "cz"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   },
   "repository": {
     "type": "git",
@@ -36,6 +42,8 @@
     "@commitlint/config-conventional": "^17.4.0",
     "@types/node": "^18.11.15",
     "@vue/compiler-sfc": "^3.2.45",
+    "commitizen": "^4.2.6",
+    "cz-conventional-changelog": "^3.3.0",
     "husky": "^8.0.0"
   }
 }
