@@ -23,3 +23,5 @@ Thus will create a [entity].config.js in the cwd. Modify the config file to setu
 
 3. create
 use the following command to create crud template based on the config file in the cwd. If there are multiple config files in cwd, when you run `crud-cli create`, commander line will allow you to choose from the file list to assign certain config file.
+
+4. continue
