@@ -1,6 +1,6 @@
 export const entityDefinition = [
     {
-        prop: "username",
+        prop: "name",
         label: "用户名",
         editable: false,
         type: "input",
