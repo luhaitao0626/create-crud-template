@@ -1,6 +1,6 @@
 import type { IEntity } from './typings/entity';
 import type { IEntityQuery } from './typings/entityQuery';
-import MockData from './mock-data';
+import MockData from './mockData';
 
 const Fields: string[] = [
 
