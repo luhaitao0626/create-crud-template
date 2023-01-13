@@ -1,3 +1,3 @@
-export type IEntityQuery = {
-    name: string
+export interface IEntityQuery {
+    
 }

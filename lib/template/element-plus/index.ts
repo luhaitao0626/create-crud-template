@@ -4,7 +4,7 @@ import { total } from './pagination';
 import { params } from "./query";
 import { entityDefinition } from './entityDefinition';
 
-export let tableData: any = ref([]);
+export let tableData: any = ref(entityDefinition);
 
 // Table
 export const tableHeader = reactive(entityDefinition);
