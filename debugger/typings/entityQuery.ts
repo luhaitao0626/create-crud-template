@@ -1,5 +1,5 @@
 export interface IEntityQuery {
-  email: string;
-  phone: string;
-  name: string;
+  email?: string;
+  phone?: string;
+  name?: string;
 }
