@@ -7,7 +7,7 @@ const isEmpty = (target: string) => {
 }
 
 export const form = reactive({
-
+    field: ''
 });
 
 export const params = computed(() => {

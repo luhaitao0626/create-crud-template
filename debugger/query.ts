@@ -3,7 +3,11 @@ import { setEntitys } from '.';
 const isEmpty = (target: string) => {
   return target === '';
 };
-export const form = reactive({});
+export const form = reactive({
+  name: '',
+  phone: '',
+  email: ''
+});
 export const params = computed(() => {
   let obj: any = {};
   if (!isEmpty(form.name)) obj.name = form.name;
