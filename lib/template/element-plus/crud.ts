@@ -30,10 +30,26 @@ export const getEntitys = async (params: IEntityQuery): Promise<any> => {
         return e
     }
 }
-export const update = async(entity: IEntity): Promise<any> => {
+export const create = async(entity: IEntity): Promise<any> => {
+    // filter unnecessay properties in entity
     let _entity = filterFields(entity, Fields);
     try {
-        // update api
+        // update api (user defined)
+        // const res = await createEntity(_entity)
+        // return res
+    }
+    catch (err) {
+        return err
+    }
+}
+
+export const update = async(entity: IEntity): Promise<any> => {
+    // filter unnecessay properties in entity
+    let _entity = filterFields(entity, Fields);
+    try {
+        // update api (user defined)
+        // const res = await updateEntity(_entity)
+        // return res
     }
     catch (err) {
         return err
@@ -41,7 +57,9 @@ export const update = async(entity: IEntity): Promise<any> => {
 }
 export const remove = async (id: string): Promise<any> => {
     try {
-        // remove api
+        // remove api (user defined)
+        // const res = await updateEntity(id)
+        // return res
     }
     catch (err) {
         return err
