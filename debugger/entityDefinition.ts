@@ -1,0 +1,31 @@
+export const entityDefinition = [{
+  prop: "name",
+  label: "entity",
+  editable: false,
+  type: "input"
+}, {
+  prop: "gender",
+  label: "gender",
+  editable: false,
+  type: "radio"
+}, {
+  prop: "phone",
+  label: "phone",
+  editable: false,
+  type: "input"
+}, {
+  prop: "email",
+  label: "email",
+  editable: false,
+  type: "input"
+}, {
+  prop: "address",
+  label: "address",
+  editable: false,
+  type: "input"
+}, {
+  prop: "birthday",
+  label: "birthday",
+  editable: false,
+  type: "datetime"
+}];

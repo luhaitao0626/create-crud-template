@@ -14,7 +14,8 @@
             "type": "node",
             "name": "Run Current File",
             "request": "launch",
-            "program": "${workspaceFolder}\\debugger\\debugger.js"
+            "program": "${workspaceFolder}\\debugger\\debugger.js",
+            "cwd": "${workspaceFolder}\\debugger"
         }
     ]
 }

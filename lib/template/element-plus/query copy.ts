@@ -7,15 +7,28 @@ const isEmpty = (target: string) => {
 }
 
 export const form = reactive({
-
+    // <% queryFields.forEach(field=>{ %>
+    //     <%= field%> : '',
+    // <% })%>
 });
 
 export const params = computed(() => {
     let obj: any = {};
-    if(!isEmpty(form.field)) obj.field = form.field;
-    obj.pageNum = pagination.pageNum;
-    obj.pageSize = pagination.pageSize;
-    return obj;
+    // <%if(hasQuery){%>
+    //     <% queryFields.forEach(field=> {%>
+    //         if (!isEmpty(form.<%=field%>)) obj.<%=field%> = form.<%=field%>;
+    //     <%})%>
+    // <%}%>
+    // <%if(hasPagination){%>
+    // obj.pageNum = pagination.pageNum;
+    // obj.pageSize = pagination.pageSize;
+    // <%}%>
+
+    // <%if(hasQuery || hasPagination){%>
+    // return obj;
+    // <% } else {%>
+    // return null
+    // <%}%>
 })
 
 export const search = async () => {
