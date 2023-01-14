@@ -6,9 +6,9 @@ const isEmpty = (target: string) => {
 export const form = reactive({});
 export const params = computed(() => {
   let obj: any = {};
-  if (!isEmpty(form.email)) obj.email = form.email;
-  if (!isEmpty(form.phone)) obj.phone = form.phone;
   if (!isEmpty(form.name)) obj.name = form.name;
+  if (!isEmpty(form.phone)) obj.phone = form.phone;
+  if (!isEmpty(form.email)) obj.email = form.email;
   return obj;
 });
 export const search = async () => {
@@ -19,7 +19,7 @@ export const reset = async () => {
   setEntitys();
 };
 export const clearSearchForm = () => {
-  // <% queryFields.forEach(field=> {%>
-  //     form.<%=field%> = ''
-  // <%})%>
+  form.name = '';
+  form.phone = '';
+  form.email = '';
 };

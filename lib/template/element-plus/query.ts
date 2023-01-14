@@ -30,7 +30,5 @@ export const reset = async () => {
 }
 
 export const clearSearchForm = () => {
-    // <% queryFields.forEach(field=> {%>
-    //     form.<%=field%> = ''
-    // <%})%>
+    form.field = '';
 }
