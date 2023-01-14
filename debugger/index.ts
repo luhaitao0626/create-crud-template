@@ -1,6 +1,5 @@
 import { reactive, ref } from "vue";
 import { getEntitys, remove, update } from "./crud";
-import { total } from './pagination';
 import { params } from "./query";
 import { entityDefinition } from './entityDefinition';
 export let tableData: any = ref(entityDefinition);
@@ -12,7 +11,6 @@ export const tableHeader = reactive(entityDefinition);
 export const setEntitys = async () => {
   let entitys = await getEntitys(params.value);
   tableData.value = entitys.list;
-  total.value = entitys.total;
 };
 
 // edit/update

@@ -55,13 +55,11 @@
     
   </el-table>
   <el-divider></el-divider>
-  <el-pagination v-model:current-page="pagination.pageNum" v-model:page-size="pagination.pageSize" :page-sizes="[3, 5, 10, 20]" :small="false" :disabled="false" :background="true" layout="total, sizes, prev, pager, next, jumper" :total="total" @size-change="handleSizeChange" @current-change="handleCurrentChange">
-  </el-pagination>
+  
 </template>
 
 <script setup lang="ts">
 import { onMounted } from "vue";
-import { total, pagination, handleCurrentChange, handleSizeChange } from "./pagination";
 import { form, search, reset } from "./query";
 import { tableHeader, tableData, setEntitys, handleEdit, handleDelete, handleDetail } from ".";
 onMounted(() => {

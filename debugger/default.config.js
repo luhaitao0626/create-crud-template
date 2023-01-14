@@ -5,7 +5,7 @@ const config = {
   type: 'element-plus',
   output: path.resolve(__dirname),
   editable: true,
-  hasPagination: true,
+  hasPagination: false,
   queryFields: ["name", "phone",'email'],
   fields: {
     name: {
