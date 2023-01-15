@@ -10,7 +10,7 @@ program
 
 program
   .command("init")
-  .description("pull default.config.js into cwd for user to customize options")
+  .description("pull default.config.cjs into cwd for user to customize options")
   // .argument('<string>','assign name for entity')
   .option("-n, --name <char>", "assign name for entity")
   .action(function(){
@@ -22,7 +22,7 @@ program
 program
   .command("create")
   .description(
-    "create template by [entity].config.js. If there is no .config.js in cwd then cli will use default config.js to create template!"
+    "create template by [entity].config.cjs. If there is no .config.cjs in cwd then cli will use default config.js to create template!"
   )
   .action(async (str, options) => {
     require('../lib/create')()

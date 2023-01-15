@@ -14,12 +14,12 @@ npm install create-crud-template --save-dev
 ```
 crud-cli init
 ```
-This command will create a default.config.js file in the cwd(current working directory).   
+This command will create a default.config.cjs file in the cwd(current working directory).   
 If you want to customize entity name, try the following command.
 ```
 crud-cli init [entity]
 ```
-Thus will create a [entity].config.js in the cwd. Modify the config file to setup the entity configuration you want to create.
+Thus will create a [entity].config.cjs in the cwd. Modify the config file to setup the entity configuration you want to create.
 
 3. create
 use the following command to create crud template based on the config file in the cwd. If there are multiple config files in cwd, when you run `crud-cli create`, commander line will allow you to choose from the file list to assign certain config file.

@@ -34,8 +34,8 @@ npm install crud-template -g
 create-crud-template --default
 
 ### 创建模板生成
-获取默认的config文件，或者自己根据模板写一个xxx.config.js
-create-crud-template init --filename xxx.config.js
+获取默认的config文件，或者自己根据模板写一个xxx.config.cjs
+create-crud-template init --filename xxx.config.cjs
 
 用户修改config文件后保存，再通过下面的命令来根据config生成用户所需要的代码
 create-crud-template create
@@ -43,7 +43,7 @@ create-crud-template create
 
 
 ## TODO
-- 如果当前工作目录的config.js不止一个，需要用户选择用哪一个config.js
+- 如果当前工作目录的config.cjs不止一个，需要用户选择用哪一个config.cjs
 
 
 
