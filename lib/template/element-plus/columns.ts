@@ -1,4 +1,4 @@
-export const entityDefinition = [
+export const columns = [
     {
         prop: "name",
         label: "用户名",

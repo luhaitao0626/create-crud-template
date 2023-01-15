@@ -2,12 +2,12 @@ import { reactive, ref } from "vue";
 import { getEntitys, remove, update } from "./crud";
 import { total } from './pagination';
 import { params } from "./query";
-import { entityDefinition } from './entityDefinition';
+import { columns } from './columns';
 
-export let tableData: any = ref(entityDefinition);
+export let tableData: any = ref([]);
 
 // Table
-export const tableHeader = reactive(entityDefinition);
+export const tableHeader = reactive(columns);
 
 // getlist
 export const setEntitys = async () => {
