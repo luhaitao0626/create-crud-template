@@ -10,19 +10,22 @@
     <!-- 用户定义：可编辑 -->
     <el-table-column mode="editable" v-for="item in tableHeader" :key="item.prop" :prop="item.prop" :label="item.label">
       <template #default="scope">
-        <!-- 进入编辑模式 -->
-        <div v-show="item.editable || scope.row.editable">
+        <!-- 进入编辑模式：该行处于编辑模式并且该字段是可编辑的 -->
+        <div v-if="scope.row.editable && item.editable">
           <template v-if="item.type === 'input'">
             <el-input size="default" v-model="scope.row[item.prop]" :placeholder="`请输入${item.label}`"></el-input>
           </template>
           <template v-else-if="item.type === 'datepicker'">
-            <el-date-picker v-model="scope.row[item.prop]" type="date" placeholder="Pick a day" size="default"
-              format="YYYY/MM/DD" value-format="YYYY-MM-DD"></el-date-picker>
+            <el-date-picker v-model="scope.row[item.prop]" type="date" placeholder="Pick a day" size="default" format="YYYY/MM/DD" value-format="YYYY-MM-DD"></el-date-picker>
+          </template>
+          <template v-else-if="item.type === 'switch'">
+            <el-switch v-model="scope.row[item.prop]" size="default"></el-switch>
           </template>
         </div>
-        <!-- 进入非编辑模式 -->
-        <div v-show="!item.editable && !scope.row.editable" class="editable-row">
-          <span class="editable-row-span">{{ scope.row[item.prop] }}</span>
+        <!-- 非编辑模式(展示模式) -->
+        <div v-else class="editable-row">
+          <el-switch v-if="item.type==='switch'" v-model="scope.row[item.prop]" size="default" disabled></el-switch>
+          <span v-else class="editable-row-span">{{ scope.row[item.prop] }}</span>
         </div>
       </template>
     </el-table-column>
