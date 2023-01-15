@@ -1,12 +1,18 @@
 #! /usr/bin/env node
 
 const { program } = require("commander");
-
+const pkg = require('../package.json');
 program
   .name("create-crud-template")
-  .description("CLI to create crud template")
-  // TODO get version from package.json
-  .version("0.0.1");
+  .description("a CLI, which is for to create entity crud template")
+  .version(pkg.version);
+
+program
+  .command("version")
+  .description("fetch create-crud-template version")
+  .action(function(){
+    console.log(pkg.version)
+  });
 
 program
   .command("init")
