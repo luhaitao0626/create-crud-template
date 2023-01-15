@@ -4,7 +4,7 @@ const { program } = require("commander");
 const pkg = require('../package.json');
 program
   .name("create-crud-template")
-  .description("a CLI, which is for to create entity crud template")
+  .description("CLI to create entity crud template")
   .version(pkg.version);
 
 program
@@ -17,11 +17,10 @@ program
 program
   .command("init")
   .description("pull default.config.cjs into cwd for user to customize options")
-  // .argument('<string>','assign name for entity')
-  .option("-n, --name <char>", "assign name for entity")
-  .action(function(){
-    const name = this.opts().name;
-    require('../lib/init')(name)
+  .argument('<string>','assign name for entity')
+  // .option("-n, --name <char>", "assign name for entity")
+  .action(function(str){
+    require('../lib/init')(str)
   });
 
 
