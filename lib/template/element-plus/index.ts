@@ -28,14 +28,6 @@ export const create = async () => {
     })
     isCreating.value = true;
     const newData = {
-        name: "",
-        age: '',
-        active: '',
-        gender: "",
-        phone: "",
-        email: "",
-        address: "",
-        birthday: "",
         editable: true,
         isCreating: true,
     }
