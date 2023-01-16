@@ -1,9 +1,9 @@
 <template>
   <el-form :inline="true" :model="form" name="queryForm">
     <el-form-item>
-      <el-button type="primary" @click="search">query</el-button>
-      <el-button type="primary" @click="reset">reset</el-button>
-      <el-button type="success" @click="create">add</el-button>
+      <el-button type="primary" @click="search" name="query">query</el-button>
+      <el-button type="primary" @click="reset" name="reset">reset</el-button>
+      <el-button type="success" @click="create" name="create">create</el-button>
     </el-form-item>
   </el-form>
   <el-table
