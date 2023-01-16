@@ -33,12 +33,13 @@
     >
       <template #default="scope">
         <!-- in edit mode：scope(row) is editable and field is editable -->
-        <div v-if="scope.row.editable && item.editable">
+        <div v-if="scope.row.editable">
           <template v-if="item.type === 'input'">
             <el-input
               size="default"
               v-model="scope.row[item.prop]"
               :placeholder="`please input ${item.label}`"
+              :disabled="!item.editable"
             ></el-input>
           </template>
           <template v-else-if="item.type === 'datepicker'">
@@ -49,12 +50,14 @@
               size="default"
               format="YYYY/MM/DD"
               value-format="YYYY-MM-DD"
+              :disabled="!item.editable"
             ></el-date-picker>
           </template>
           <template v-else-if="item.type === 'switch'">
             <el-switch
               v-model="scope.row[item.prop]"
               size="default"
+              :disabled="!item.editable"
             ></el-switch>
           </template>
         </div>
@@ -163,7 +166,7 @@ import {
   // NEED
   handleCreate,
   // NEED
-  cancelCreate
+  cancelCreate,
 } from ".";
 onMounted(() => {
   setEntitys();
