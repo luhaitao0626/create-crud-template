@@ -6,9 +6,7 @@ const isEmpty = (target: string) => {
     return target === '';
 }
 
-export const form = reactive({
-    field: ''
-});
+export const form = reactive({});
 
 export const params = computed(() => {
     let obj: any = {};
