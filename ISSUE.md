@@ -57,3 +57,11 @@ create-crud-template create
 => 最终ast 
 => 生成输出目录 
 => codegen
+
+
+## TODO
+- 实现create功能
+- fields 加入id标识
+- mockData使用mock.js生成模拟数据
+- zh,en多语言转换
+- theme切换
