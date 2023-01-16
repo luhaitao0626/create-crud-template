@@ -1,18 +1,8 @@
 <template>
   <el-form :inline="true" :model="form" name="queryForm">
-    <el-form-item label="name">
-      <el-input
-        v-model="form.name"
-        placeholder="Please input entity"
-      ></el-input>
-    </el-form-item>
-    <el-form-item label="age">
-      <el-input v-model="form.age" placeholder="Please input age"></el-input>
-    </el-form-item>
     <el-form-item>
       <el-button type="primary" @click="search">query</el-button>
       <el-button type="primary" @click="reset">reset</el-button>
-      <!-- NEED -->
       <el-button type="success" @click="create">add</el-button>
     </el-form-item>
   </el-form>
@@ -109,7 +99,6 @@
         >
           confirm edit
         </el-button>
-        <!-- NEED -->
         <el-button
           v-show="scope.row.editable && scope.row.isCreating === true"
           type="success"
@@ -163,9 +152,7 @@ import {
   handleEdit,
   handleDelete,
   handleDetail,
-  // NEED
   handleCreate,
-  // NEED
   cancelCreate,
 } from ".";
 onMounted(() => {
