@@ -43,6 +43,12 @@ export const cancelCreate = async () => {
 
 // create/confirm create
 export const handleCreate = async (index: any, row: any) => {
+    // call create api (user defined)
+    // await createEntity(row)
+
+    // re-get entity list after create new data
+    await setEntitys();
+
     isCreating.value = false;
     row.isCreating = undefined;
     row.editable = false;

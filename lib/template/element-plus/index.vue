@@ -22,14 +22,14 @@
       :label="item.label"
     >
       <template #default="scope">
-        <!-- in edit mode：scope(row) is editable and field is editable -->
+        <!-- in edit mode : 1. edit mode , 2. creating mode-->
         <div v-if="scope.row.editable">
           <template v-if="item.type === 'input'">
             <el-input
               size="default"
               v-model="scope.row[item.prop]"
               :placeholder="`please input ${item.label}`"
-              :disabled="!item.editable"
+              :disabled="scope.row.isCreating? false: !item.editable"
             ></el-input>
           </template>
           <template v-else-if="item.type === 'datepicker'">
@@ -40,14 +40,14 @@
               size="default"
               format="YYYY/MM/DD"
               value-format="YYYY-MM-DD"
-              :disabled="!item.editable"
+              :disabled="scope.row.isCreating? false: !item.editable"
             ></el-date-picker>
           </template>
           <template v-else-if="item.type === 'switch'">
             <el-switch
               v-model="scope.row[item.prop]"
               size="default"
-              :disabled="!item.editable"
+              :disabled="scope.row.isCreating? false: !item.editable"
             ></el-switch>
           </template>
         </div>
