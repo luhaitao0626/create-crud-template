@@ -3,7 +3,7 @@
     <el-form-item>
       <el-button type="primary" @click="search" name="queryButton">query</el-button>
       <el-button type="primary" @click="reset" name="queryButton">reset</el-button>
-      <el-button type="success" @click="create">create</el-button>
+      <el-button type="success" @click="initiateCreate">create</el-button>
     </el-form-item>
   </el-form>
   <el-table
@@ -148,7 +148,7 @@ import {
   tableHeader,
   tableData,
   setEntitys,
-  create,
+  initiateCreate,
   handleEdit,
   handleDelete,
   handleDetail,

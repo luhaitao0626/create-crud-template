@@ -1,5 +1,5 @@
 import { reactive, ref } from "vue";
-import { getEntitys, remove, update } from "./crud";
+import { getEntitys, create, remove, update } from "./crud";
 import { total } from './pagination';
 import { params } from "./query";
 import { columns } from './columns';
@@ -22,7 +22,7 @@ export const setEntitys = async () => {
 };
 
 // create a new line in table to operate
-export const create = async () => {
+export const initiateCreate = () => {
     if (isCreating.value) return ElMessage({
         message: 'Warning, you have already in creating mode. Please finish first',
         type: 'warning',
@@ -44,7 +44,7 @@ export const cancelCreate = async () => {
 // create/confirm create
 export const handleCreate = async (index: any, row: any) => {
     // call create api (user defined)
-    // await createEntity(row)
+    let res = await create(row)
 
     // re-get entity list after create new data
     await setEntitys();
@@ -56,6 +56,7 @@ export const handleCreate = async (index: any, row: any) => {
 
 // edit/update
 export const handleEdit = async (index: any, row: any) => {
+    // call update api (user defined)
     let res = await update(row);
     row.editable = false;
 };
