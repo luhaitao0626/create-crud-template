@@ -1,5 +1,5 @@
 {
-  "name": "crud-cli",
+  "name": "crud",
   "version": "1.3.0",
   "description": "This is a cli for creating crud page of an entity, currently support for vue@next sfc template. Code spliting is automatically done.",
   "main": "index.js",
