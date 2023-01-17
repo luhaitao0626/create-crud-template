@@ -11,7 +11,8 @@ export let tableData: any = ref([]);
 const isCreating = ref(false);
 
 // Table
-export const tableHeader = reactive(columns);
+const _columns = columns.filter(column => column.prop != 'id');
+export const tableHeader = reactive(_columns);
 
 // getlist
 export const setEntitys = async () => {
