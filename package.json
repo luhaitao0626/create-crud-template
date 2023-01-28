@@ -1,9 +1,11 @@
 {
-  "name": "@webcrud/cli",
+  "name": "@webcrud/crud-cli",
   "version": "1.3.0",
   "description": "This is a cli for creating crud page of an entity, currently support for vue@next sfc template. Code spliting is automatically done.",
   "main": "index.js",
-  "bin": "./bin/crud",
+  "bin": {
+    "webcrud":"./bin/crud"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "prepare": "husky install",
