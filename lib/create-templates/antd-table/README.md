@@ -1,1 +1,0 @@
-base template for antd table

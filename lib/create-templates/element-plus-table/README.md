@@ -1,1 +1,0 @@
-base template for element-plus table
