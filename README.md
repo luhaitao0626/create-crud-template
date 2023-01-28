@@ -8,12 +8,12 @@ Until now, crud-cli only support element-plus CRUD template, other template will
 ## How to use?
 ### 1. install
 ```cmd
-npm install create-crud-template -g
+npm install webcrud-cli -g
 ```
 
 ### 2. initialize
 ```cmd
-crud-cli init <entity>
+crud init <entity>
 ```
 This command will create a file named entity.config.cjs in the current working directory.
 Modify the config file to make costumized entity configuration.
@@ -22,7 +22,7 @@ Modify the config file to make costumized entity configuration.
 
 The following command will create crud template.
 ```cmd
-crud-cli create
+crud create
 ```
 If there is only one entity.config.cjs file in current working directory, the cli will create crud template according to this file. However, if there are multiple config.cjs files, there will appear an interfact asking user to select one from the list.
 
@@ -104,23 +104,23 @@ const config = {
       query: false,
     },
   },
-  operations: ["create", "update", "remove", "detail"],
-  dependencies: [
-    {
-      name: "store",
-      isNeed: true,
-      path: "@/stores",
-      aliasName: "userStore",
-      actionTypes: {
-        isNeed: true,
-        path: "@/stores/action-types",
-      },
-    },
-    {
-      name: "router",
-      isNeed: true,
-    },
-  ],
+  // operations: ["create", "update", "remove", "detail"],
+  // dependencies: [
+  //   {
+  //     name: "store",
+  //     isNeed: true,
+  //     path: "@/stores",
+  //     aliasName: "userStore",
+  //     actionTypes: {
+  //       isNeed: true,
+  //       path: "@/stores/action-types",
+  //     },
+  //   },
+  //   {
+  //     name: "router",
+  //     isNeed: true,
+  //   },
+  // ],
 };
 module.exports = config;
 
