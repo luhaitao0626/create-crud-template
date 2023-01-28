@@ -6,8 +6,14 @@
   "bin": {
     "webcrud":"./bin/crud"
   },
+  "files":[
+    "bin",
+    "lib",
+    "LICENSE",
+    "README.md",
+    "package.json"
+  ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "prepare": "husky install",
     "commitlint": "commitlint --config commitlint.config.js -e -V",
     "commit": "cz"
