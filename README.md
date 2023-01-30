@@ -3,9 +3,10 @@ This cli is used for creating CRUD template of various UI libraries, emelent-plu
 The Main Purpose is to free developers from manually creating entity CRUD files.
 
 ## instruction
-Until now, crud-cli only support element-plus CRUD template, other template will be available later.
+Until now, webcrud-cli only support element-plus CRUD template, other template will be available later.
 
-## How to use?
+# How to use?
+## install globally
 ### 1. install
 ```cmd
 npm install webcrud-cli -g
@@ -13,7 +14,7 @@ npm install webcrud-cli -g
 
 ### 2. initialize
 ```cmd
-crud init <entity>
+webcrud-cli init <entity>
 ```
 This command will create a file named entity.config.cjs in the current working directory.
 Modify the config file to make costumized entity configuration.
@@ -22,7 +23,7 @@ Modify the config file to make costumized entity configuration.
 
 The following command will create crud template.
 ```cmd
-crud create
+webcrud-cli create
 ```
 If there is only one entity.config.cjs file in current working directory, the cli will create crud template according to this file. However, if there are multiple config.cjs files, there will appear an interfact asking user to select one from the list.
 
@@ -44,8 +45,8 @@ const config = {
       type: "input", // specify element to show the property value 
       label: "entity", // the label of property, used in table header
       required: true, // whether this property is required
-      editable: true, // whether this property is editable
-      query: true, // whether this property is quariable
+      editable: true, // INSTRUCTION: if you are editing a row, editable will control this field is editable or not.
+      query: true, // INSTRUCTION: whether this property is quariable, if you set query as true, it will appear in the search bar.
     },
     age: {
       prop: Number,
