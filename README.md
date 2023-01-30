@@ -1,9 +1,6 @@
-# create-crud-template
-This cli is used for creating CRUD template of various UI libraries, emelent-plus, ant-design, vant and so on.  
+# Instruction
+This cli used for creating CRUD template of various UI libraries, emelent-plus, ant-design, vant and so on.  (Until now, webcrud-cli only support element-plus CRUD template, other template will be available later.)
 The Main Purpose is to free developers from manually creating entity CRUD files.
-
-## instruction
-Until now, webcrud-cli only support element-plus CRUD template, other template will be available later.
 
 # How to use?
 ## install globally
@@ -32,7 +29,7 @@ If there is only one entity.config.cjs file in current working directory, the cl
 
 After user select one item, the cli will create a folder named 'entity' then emit template files into it.
 
-# config.cjs
+# Instruction for config.cjs
 \<entity\>.config.cjs structure is as following:
 ```js
 const path = require('path');
